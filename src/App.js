@@ -27,6 +27,16 @@ class App extends Component {
                      sub={this.state.subject.sub}></Subject>
                 <Subject title={"different"} sub="props"></Subject>
                 <Content content={_content}></Content>
+                <div>
+                    <a href='/' onClick={(e) => {
+                        e.preventDefault(); // a 태그의 기본 동작을 제거함으로써, 페이지가 새로 고침되지 않도록 막음
+                        alert("새로 고침이 안 되도록 했습니다");
+                    }}>새로고침 없음</a>
+                    <br></br>
+                    <a href='/' onClick={(e) => {
+                        alert("새로 고침이 일어납니다");
+                    }}>새로고침 있음</a>
+                </div>
             </div>
         )
     }
