@@ -36,6 +36,20 @@ class App extends Component {
                     <a href='/' onClick={(e) => {
                         alert("새로 고침이 일어납니다");
                     }}>새로고침 있음</a>
+                    <br></br>
+                    <a href='/' onClick={
+                        function(e){
+                            e.preventDefault();
+                            this.setState({mode: 0});
+                        }.bind(this) // this (=App 이라는 컴포넌트)를 함수 내부에서 사용할 수 있도록 bind
+                    }>0으로 전환</a>
+                    <br></br>
+                    <a href='/' onClick={
+                        function(e){
+                            e.preventDefault();
+                            this.setState({mode: 1});
+                        }.bind(this)
+                    }>1로 전환</a>
                 </div>
             </div>
         )
