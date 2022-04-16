@@ -26,7 +26,9 @@ class App extends Component {
                     title={this.state.subject.title}
                      sub={this.state.subject.sub}></Subject>
                 <Subject title={"different"} sub="props"></Subject>
-                <Content content={_content}></Content>
+                <Content content={_content} onChangePage={function(){
+                    this.setState({mode: 1});
+                }.bind(this)}></Content>
                 <div>
                     <a href='/' onClick={(e) => {
                         e.preventDefault(); // a 태그의 기본 동작을 제거함으로써, 페이지가 새로 고침되지 않도록 막음
@@ -47,7 +49,7 @@ class App extends Component {
                     <a href='/' onClick={
                         function(e){
                             e.preventDefault();
-                            this.setState({mode: 1});
+                            this.setState({mode: 1}); // this.state.mode = 1; 로 하면 render()가 호출되지 않음
                         }.bind(this)
                     }>1로 전환</a>
                 </div>
